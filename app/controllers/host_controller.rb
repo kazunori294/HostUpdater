@@ -12,7 +12,7 @@ class HostController < ApplicationController
     host.ipaddress = params[:ipaddress]
     host.network = params[:network]
     host.status = params[:status]
-    host.touch
+    host.touch unless host.new_record?
     host.save
 
     redirect_to root_path
